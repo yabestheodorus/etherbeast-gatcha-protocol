@@ -1,0 +1,58 @@
+# =========================
+# Foundry
+# =========================
+cache/
+out/
+
+# Broadcast artifacts (keep templates, ignore actual runs)
+broadcast/
+!broadcast/.gitkeep
+broadcast/*/31337/
+broadcast/**/dry-run/
+
+# =========================
+# Environment
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Node / Frontend (future-proof)
+# =========================
+node_modules/
+dist/
+build/
+.next/
+.vercel/
+pnpm-lock.yaml
+yarn.lock
+npm-debug.log*
+pnpm-debug.log*
+
+# =========================
+# IDE / OS noise
+# =========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =========================
+# Coverage / Reports
+# =========================
+coverage/
+lcov.info
+gas-report.txt
+
+# =========================
+# Docs build artifacts
+# =========================
+docs/.vuepress/dist
+docs/.docusaurus
+docs/build
+
+# =========================
+# Misc
+# =========================
+*.log
