@@ -30,6 +30,7 @@ contract DeployEtherBeast is Script {
         HelperConfig.NetworkConfig memory networkConfig = config.getConfig();
 
         if (networkConfig.subsId == 0) {
+            // vm.roll(block.number + 1);
             // creating subscription
             CreateSubscription createSub = new CreateSubscription();
             (networkConfig.subsId, networkConfig.vrfCoordinatorAddress) =
@@ -89,9 +90,9 @@ contract DeployEtherBeast is Script {
         beastElements[2] = uint8(EtherBeastTypes.EtherBeastElement.Nature);
         beastElements[3] = uint8(EtherBeastTypes.EtherBeastElement.Thunder);
 
-        imageURI[0] = "";
-        imageURI[1] = "";
-        imageURI[2] = "";
-        imageURI[3] = "";
+        imageURI[0] = "https://ipfs.io/ipfs/bafybeigtdk7oiwykcuinqurj2npajbe4ibc2shrakjjrk6z2p7irbbmk6u";
+        imageURI[1] = "https://ipfs.io/ipfs/bafybeiagnysylfbwrjji7tnmbveyiccjoshpdzsivy2o7xaq6qcqcqe5uq";
+        imageURI[2] = "https://ipfs.io/ipfs/bafybeidemwbdyxhiu2s3dryfibzloiliubljssruxjixd3s3g6xuds4mee";
+        imageURI[3] = "https://ipfs.io/ipfs/bafybeigbkvajnmsjk5mit2u2erq7q3pz4bchqigmejohjupuplhtianlqa";
     }
 }

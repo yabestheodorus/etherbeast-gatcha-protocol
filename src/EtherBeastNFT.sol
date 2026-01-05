@@ -123,7 +123,7 @@ contract EtherBeastNFT is ERC721, ERC721Enumerable, Ownable {
 
         bytes memory jsonByte = abi.encodePacked(
             '{ "name": "EtherBeast #',
-            tokenId,
+            Strings.toString(tokenId),
             '", "image": "',
             EtherBeastGatcha(s_gatchaContract).getImageURI(beast.id),
             '", "attributes":[',
@@ -189,7 +189,19 @@ contract EtherBeastNFT is ERC721, ERC721Enumerable, Ownable {
     /*//////////////////////////////////////////////////////////////
                          GETTERS
     //////////////////////////////////////////////////////////////*/
-    function getBeastByTokenId(uint256 tokenId) external view returns (EtherBeastTypes.EtherBeast memory) {
+    function getBeastByTokenId(uint256 tokenId) public view returns (EtherBeastTypes.EtherBeast memory) {
         return s_tokenToEtherBeast[tokenId];
+    }
+
+    function getBeastsTokenURIsByOwner() external view returns (string[] memory tokenURIs, uint256[] memory tokenIds) {
+        uint256 balance = balanceOf(msg.sender);
+        tokenURIs = new string[](balance);
+        tokenIds = new uint256[](balance);
+
+        for (uint256 i = 0; i < balance; i++) {
+            uint256 tokenId = tokenOfOwnerByIndex(msg.sender, i);
+            tokenIds[i] = tokenId;
+            tokenURIs[i] = tokenURI(tokenId);
+        }
     }
 }

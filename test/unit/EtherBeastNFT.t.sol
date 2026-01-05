@@ -104,6 +104,7 @@ contract EtherBeastNftTest is BaseTest {
 
         // Later i will find out a way to test the tokenURI function
         // Right now i just want my %Branch coverage to be good.
+        nft.getBeastsTokenURIsByOwner();
         for (uint256 i = 0; i < 4; i++) {
             string memory uri = nft.tokenURI(i);
             // Optional: log or assert something to avoid "unused" warning
